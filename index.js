@@ -12,7 +12,9 @@ module.exports = opts => buf => {
 		return Promise.reject(new TypeError('Expected a buffer'));
 	}
 
-	if (!isPng(buf) && !isJpg(buf)) {
+	// if (!isPng(buf) && !isJpg(buf)) {
+	// we only want this to run on JPG and NOT on PNG
+	if (!isJpg(buf)) {	
 		return Promise.resolve(buf);
 	}
 
